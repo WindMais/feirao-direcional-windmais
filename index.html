@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feirão Direcional | Wind+</title>
+<meta name="description" content="Books dos empreendimentos Direcional para os corretores Wind+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1) CORES E IDENTIDADE  — troque aqui para ajustar a cara
+   ========================================================= */
+:root{
+  --wind:        #0B1F3A;   /* cor principal Wind+ (fundo do topo)  */
+  --wind-2:      #13305A;   /* variação da principal                */
+  --destaque:    #F5A300;   /* cor de destaque (botões, selos)      */
+  --direcional:  #0057B8;   /* cor Direcional (detalhes)            */
+  --fundo:       #F3F5F9;
+  --card:        #FFFFFF;
+  --texto:       #14213D;
+  --texto-suave: #5B6478;
+  --borda:       #E2E6EE;
+  --raio:        16px;
+  --ouro:        #F2C14E;   /* dourado UNIWIND (condições comerciais) */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',system-ui,sans-serif;background:var(--fundo);color:var(--texto);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ---------- TOPO ---------- */
+.hero{
+  background:linear-gradient(135deg,var(--wind) 0%,var(--wind-2) 60%,var(--direcional) 130%);
+  color:#fff;padding:28px 16px 36px;position:relative;overflow:hidden
+}
+.hero::after{
+  content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;
+  border-radius:50%;background:var(--destaque);opacity:.12
+}
+.wrap{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.logos{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.logo-uniwind{height:110px;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.logo-direcional{background:#fff;border-radius:10px;padding:8px 12px;display:flex}
+.logo-direcional img{height:26px;width:auto;display:block}
+.x{opacity:.5;font-weight:600}
+
+/* ---------- VITRINE (banner do Feirão em destaque no topo) ---------- */
+.vitrine{position:relative;overflow:hidden;background:#0A2A1B;padding:20px 16px 32px;color:#fff}
+.vitrine::before{content:"";position:absolute;inset:-40px;background:url(assets/capa-feirao.jpg) center/cover;
+  filter:blur(28px) saturate(1.3) brightness(.45);transform:scale(1.1)}
+.vitrine::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 35%,rgba(5,15,10,.75) 100%)}
+.vitrine .wrap{max-width:1200px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+.vitrine .logos{margin-bottom:18px}
+.painel h1{margin:12px 0 10px;font-size:clamp(28px,3.4vw,42px)}
+.vitrine-banner{order:-1}
+.painel .sub{opacity:.9}
+.exclusivo{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(242,193,78,.6);
+  background:rgba(242,193,78,.12);color:var(--ouro);font-weight:800;font-size:12px;letter-spacing:1.5px;
+  padding:7px 12px;border-radius:999px;text-transform:uppercase}
+.recursos{list-style:none;display:grid;gap:10px;margin:20px 0 4px}
+.recursos li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:11px 14px;backdrop-filter:blur(4px)}
+.recursos .ico{flex:0 0 38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:19px;
+  background:linear-gradient(180deg,#FFE08A,var(--ouro))}
+.recursos b{display:block;font-size:14px}
+.recursos small{font-size:12.5px;opacity:.8}
+.botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.vitrine .cta.sec{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);box-shadow:none}
+.vitrine-banner{display:flex;justify-content:center}
+@media (min-width:960px){
+  .vitrine{padding:36px 24px 44px}
+  .vitrine .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px}
+  .vitrine-banner{order:0}
+}
+.capa-home{width:auto;max-width:100%;max-height:78vh;height:auto;display:block;border-radius:20px;
+  border:3px solid rgba(242,193,78,.75);
+  box-shadow:0 0 0 6px rgba(242,193,78,.12),0 28px 60px rgba(0,0,0,.55);
+  animation:entra .7s ease-out both}
+@keyframes entra{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.vitrine .cta{background:var(--ouro);color:#3A2A00;font-weight:800;font-size:14px;white-space:nowrap;
+  padding:12px 17px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.vitrine .cta:hover{filter:brightness(1.06)}
+
+/* ---------- CARROSSEL (Breve lançamento Piedade) ---------- */
+.lanc{max-width:1100px;margin:0 auto;padding:24px 16px 0}
+.lanc-topo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
+.lanc-selo{background:#F4736B;color:#fff;font-weight:800;font-size:12px;letter-spacing:1.5px;
+  padding:6px 12px;border-radius:999px}
+.lanc-titulo{font-size:clamp(20px,4vw,28px);font-weight:800}
+.lanc-titulo em{font-style:normal;color:#1E9BE0}
+.car{position:relative;border-radius:var(--raio);overflow:hidden;background:#22A2E2;
+  box-shadow:0 14px 34px rgba(11,31,58,.18);aspect-ratio:16/9;touch-action:pan-y}
+.car-trilho{display:flex;height:100%;transition:transform .6s ease}
+.car-slide{flex:0 0 100%;height:100%;display:block}
+.car-slide img{width:100%;height:100%;object-fit:contain;display:block}
+.car-seta{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;
+  border:0;background:rgba(11,31,58,.55);color:#fff;font-size:22px;cursor:pointer;display:grid;place-items:center}
+.car-seta:hover{background:rgba(11,31,58,.8)}
+.car-seta.ant{left:10px}.car-seta.prox{right:10px}
+.car-pontos{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:7px}
+.car-pontos button{width:9px;height:9px;border-radius:999px;border:0;padding:0;cursor:pointer;
+  background:rgba(255,255,255,.55);transition:width .25s,background .25s}
+.car-pontos button.ativo{width:24px;background:#fff}
+
+/* ---------- CONDIÇÕES COMERCIAIS (destaque) ---------- */
+.condicoes{max-width:1100px;margin:0 auto;padding:24px 16px 0}
+.cond-box{position:relative;border-radius:var(--raio);padding:22px 18px 18px;color:#fff;overflow:hidden;
+  background:linear-gradient(135deg,#0E3B26 0%,#145A38 55%,#0E3B26 100%);
+  border:2px solid var(--ouro);box-shadow:0 14px 34px rgba(14,59,38,.35),inset 0 0 0 1px rgba(255,215,120,.25)}
+.cond-box::before{content:"";position:absolute;inset:-40% -20% auto auto;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,206,92,.25),transparent 70%)}
+.cond-topo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px;position:relative}
+.cond-selo{background:linear-gradient(180deg,#FFE08A,var(--ouro));color:#3A2A00;font-weight:800;font-size:12px;
+  letter-spacing:1.5px;padding:6px 12px;border-radius:999px;animation:pulsa 1.8s ease-in-out infinite}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(255,206,92,.6)}50%{box-shadow:0 0 0 8px rgba(255,206,92,0)}}
+.cond-titulo{font-size:clamp(20px,4vw,28px);font-weight:800;position:relative}
+.cond-titulo em{font-style:normal;color:var(--ouro)}
+.cond-sub{font-size:13px;opacity:.85;margin-bottom:16px;position:relative}
+.cond-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;position:relative}
+.cond-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,215,120,.35);border-radius:12px;padding:12px 14px}
+.cond-item b{display:block;color:var(--ouro);font-size:13px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.cond-item span{font-size:15px;font-weight:600;line-height:1.35}
+.cond-acoes{margin-top:14px;position:relative;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cond-acoes a{background:var(--ouro);color:#3A2A00;font-weight:800;font-size:14px;padding:11px 16px;border-radius:12px}
+.cond-validade{font-size:12px;opacity:.75}
+.tag{display:inline-block;background:var(--destaque);color:var(--wind);font-weight:800;
+  font-size:12px;letter-spacing:1.5px;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+h1{font-size:clamp(28px,6vw,48px);font-weight:800;line-height:1.05;margin-bottom:12px}
+h1 em{font-style:normal;color:var(--destaque)}
+.sub{font-size:15px;opacity:.85;max-width:560px;line-height:1.5}
+
+/* ---------- BUSCA / FILTROS ---------- */
+.ferramentas{max-width:1100px;margin:20px auto 0;padding:0 16px;position:relative;z-index:2}
+.caixa{background:var(--card);border-radius:var(--raio);padding:14px;
+  box-shadow:0 10px 30px rgba(11,31,58,.12);display:flex;flex-direction:column;gap:12px}
+.busca{width:100%;border:1px solid var(--borda);border-radius:12px;padding:13px 14px;
+  font:inherit;font-size:15px;outline:none}
+.busca:focus{border-color:var(--direcional)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;border:1px solid var(--borda);background:#fff;border-radius:999px;
+  padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--texto-suave)}
+.chip.ativo{background:var(--wind);border-color:var(--wind);color:#fff}
+
+/* ---------- LISTA DE BOOKS ---------- */
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+.contagem{font-size:13px;color:var(--texto-suave);margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border-radius:var(--raio);overflow:hidden;border:1px solid var(--borda);
+  display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(11,31,58,.12)}
+.capa{height:150px;background:linear-gradient(135deg,var(--wind-2),var(--direcional));
+  position:relative;display:flex;align-items:flex-start;padding:10px}
+.capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.capa .ini{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:44px;font-weight:800;color:rgba(255,255,255,.25)}
+/* capa ilustrada (para empreendimentos ainda sem foto) */
+.capa svg.arte{position:absolute;inset:0;width:100%;height:100%}
+.capa .arte-nome{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;color:#fff;
+  font-weight:800;font-size:19px;line-height:1.1;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+.capa .arte-nome small{display:block;font-size:10.5px;letter-spacing:2px;font-weight:700;opacity:.85;margin-bottom:3px}
+.capa .breve{position:absolute;top:10px;right:10px;z-index:1;background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.45);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1px;
+  padding:5px 9px;border-radius:999px;backdrop-filter:blur(4px)}
+.selo{position:relative;z-index:1;background:var(--destaque);color:var(--wind);font-size:11px;
+  font-weight:800;letter-spacing:.8px;padding:5px 10px;border-radius:999px;text-transform:uppercase}
+.info{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.nome{font-size:18px;font-weight:800}
+.local{font-size:13px;color:var(--texto-suave)}
+.detalhes{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.detalhes span{font-size:12px;background:var(--fundo);border-radius:8px;padding:4px 8px;font-weight:600}
+.acoes{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.btn{flex:1;text-align:center;background:var(--destaque);color:var(--wind);font-weight:800;
+  font-size:14px;padding:13px;border-radius:12px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.05)}
+.btn-2{flex:0 0 48px;background:var(--fundo);color:var(--texto);font-size:18px}
+.btn.off{background:var(--borda);color:var(--texto-suave);cursor:not-allowed}
+.link-extra{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;
+  padding:11px;border-radius:12px;border:1.5px solid var(--borda);font-size:13.5px;font-weight:700;color:var(--wind)}
+.link-extra:hover{border-color:var(--direcional);background:var(--fundo)}
+.link-extra span{opacity:.6}
+.vazio{text-align:center;padding:48px 16px;color:var(--texto-suave)}
+
+footer{text-align:center;font-size:12px;color:var(--texto-suave);padding:24px 16px 32px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);
+  background:var(--wind);color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;
+  transition:transform .25s,opacity .25s;z-index:10;opacity:0;pointer-events:none}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<section class="vitrine">
+  <div class="wrap">
+    <div class="painel">
+      <div class="logos">
+        <img class="logo-uniwind" src="assets/logo-uniwind.png" alt="UNIWIND · Wind+">
+        <span class="x">×</span>
+        <div class="logo-direcional"><img src="assets/logo-direcional.png" alt="Direcional"></div>
+      </div>
+      <span class="exclusivo">🔒 Ferramenta exclusiva do corretor Wind+</span>
+      <h1>Tudo do <em>Feirão Direcional</em><br>na palma da sua mão.</h1>
+      <p class="sub">Books, condições do mês e links prontos para o cliente — num só lugar, para você vender mais no feirão.</p>
+      <ul class="recursos">
+        <li><span class="ico">📚</span><div><b>Books dos empreendimentos</b><small>Abra na hora e apresente direto do celular</small></div></li>
+        <li><span class="ico">💰</span><div><b>Condições comerciais de outubro</b><small>Entrada, bônus e o que vale este mês</small></div></li>
+        <li><span class="ico">📲</span><div><b>Link pronto para o WhatsApp</b><small>Um toque copia o book para enviar ao cliente</small></div></li>
+      </ul>
+      <div class="botoes">
+        <a class="cta" href="#condicoes">Ver condições de outubro ↓</a>
+        <a class="cta sec" href="#books">Abrir books</a>
+        <a class="cta sec" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Gen.%20Manoel%20Rabelo%2C%205319%20-%20Sucupira%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2051160-350"
+           target="_blank" rel="noopener" title="Av. Gen. Manoel Rabelo, 5319 - Sucupira, Jaboatão dos Guararapes - PE">📍 Localização</a>
+      </div>
+    </div>
+    <div class="vitrine-banner">
+      <img class="capa-home" src="assets/capa-feirao.jpg" width="1588" height="1232"
+           alt="Feirão em loja Wind+ na Direcional — dia 05 largada do feirão, 05, 06, 07 e 08 de novembro, Loja Jaboatão · Sucupira">
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CARROSSEL — edite a lista CARROSSEL no script
+     ========================================================= -->
+<section class="lanc" id="lancamento">
+  <div class="lanc-topo">
+    <span class="lanc-selo">BREVE LANÇAMENTO</span>
+    <h2 class="lanc-titulo">Novo Direcional em <em>Piedade</em></h2>
+  </div>
+  <div class="car" id="car">
+    <div class="car-trilho" id="car-trilho"></div>
+    <button class="car-seta ant" id="car-ant" aria-label="Anterior">‹</button>
+    <button class="car-seta prox" id="car-prox" aria-label="Próxima">›</button>
+    <div class="car-pontos" id="car-pontos"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONDIÇÕES COMERCIAIS DO MÊS — edite a lista CONDICOES no script
+     ========================================================= -->
+<section class="condicoes" id="condicoes">
+  <div class="cond-box">
+    <div class="cond-topo">
+      <span class="cond-selo">★ OUTUBRO</span>
+      <h2 class="cond-titulo">Condições comerciais de <em>outubro</em></h2>
+    </div>
+    <p class="cond-sub">Leia antes de atender: é isso que você pode oferecer ao cliente este mês.</p>
+    <div id="cond-lista" class="cond-lista"></div>
+    <div class="cond-acoes" id="cond-acoes"></div>
+  </div>
+</section>
+
+<section class="ferramentas" id="books">
+  <div class="caixa">
+    <input id="busca" class="busca" type="search" placeholder="Buscar por nome, bairro ou cidade…">
+    <div id="chips" class="chips"></div>
+  </div>
+</section>
+
+<main>
+  <p id="contagem" class="contagem"></p>
+  <div id="grid" class="grid"></div>
+</main>
+
+<footer>Wind+ Imobiliária · Material de uso interno dos corretores</footer>
+<div id="toast" class="toast"></div>
+
+<script>
+/* =========================================================
+   2) EMPREENDIMENTOS — é só editar esta lista
+   ---------------------------------------------------------
+   nome:     nome do empreendimento
+   bairro / cidade
+   status:   texto do selo da capa (aqui: data de entrega)
+   detalhes: lista curta (quartos, metragem, faixa MCMV...)
+   capa:     imagem do card, ex: "capas/conquista-jaboatao.jpg"
+   book:     caminho do PDF na pasta "books/" OU um link (Drive, Canva...)
+             vazio ""  → aparece "Book em breve"
+   tabela:   caminho da tabela de preços (ex: "tabelas/wave-boa-viagem.pdf")
+             vazio ""  → o link abre as Condições comerciais do mês
+   ========================================================= */
+const EMPREENDIMENTOS = [
+  {
+    nome: "Viva Vida São Lourenço",
+    bairro: "Nova Tiúma",
+    cidade: "São Lourenço da Mata",
+    status: "Entrega mai/2026",
+    detalhes: ["2 quartos", "36,24 m²", "Garden 12,38 m²", "MCMV"],
+    capa: "capas/viva-vida-sao-lourenco.jpg",
+    book: "books/viva-vida-sao-lourenco.pdf",
+    tabela: ""
+  },
+  {
+    nome: "Viva Vida Brisas de Igarassu",
+    bairro: "",
+    cidade: "Igarassu",
+    status: "Entrega nov/2026",
+    detalhes: [],
+    capa: "capas/viva-vida-brisas-de-igarassu.jpg",
+    book: "books/viva-vida-brisas-de-igarassu.pdf",
+    tabela: ""
+  },
+  {
+    nome: "Estilo Boa Viagem",
+    bairro: "Boa Viagem",
+    cidade: "Recife",
+    status: "Entrega fev/2027",
+    detalhes: [],
+    capa: "capas/estilo-boa-viagem.jpg",
+    book: "books/estilo-boa-viagem.pdf",
+    tabela: ""
+  },
+  {
+    nome: "Viva Vida Jardim Botânico",
+    bairro: "Curado",
+    cidade: "Jaboatão dos Guararapes",
+    status: "Entrega nov/2027",
+    detalhes: ["Studio/PCD e 2 quartos", "36,24 m²", "Garden", "9 blocos"],
+    capa: "capas/viva-vida-jardim-botanico.jpg",
+    book: "books/viva-vida-jardim-botanico.pdf",
+    tabela: ""
+  },
+  {
+    nome: "Viva Vida Primavera",
+    bairro: "",            // ← preencher bairro
+    cidade: "A confirmar", // ← preencher cidade
+    status: "Entrega jul/2028",
+    detalhes: ["Studio, PCD e 2 quartos", "Garden", "Piscina", "Pet Place"],
+    capa: "capas/viva-vida-primavera.jpg",
+    book: "books/viva-vida-primavera.pdf",
+    tabela: ""
+  },
+  {
+    nome: "Wave Boa Viagem",
+    bairro: "Imbiribeira",
+    cidade: "Recife",
+    status: "Entrega dez/2028",
+    detalhes: [],
+    capa: "capas/wave-boa-viagem.jpg",
+    book: "books/wave-boa-viagem.pdf",
+    tabela: ""
+  }
+];
+
+/* =========================================================
+   CONDIÇÕES COMERCIAIS DO MÊS — aparecem em destaque no topo
+   ---------------------------------------------------------
+   titulo: rótulo curto (ex: "Entrada", "Bônus", "ITBI e registro")
+   texto:  a condição em si
+   CONDICOES_ARQUIVO: link opcional para a tabela/PDF completo ("" = sem botão)
+   ========================================================= */
+const CONDICOES = [
+  { titulo: "Volta ao Caixa",            texto: "R$ 2.000 de desconto OU R$ 1.000 de prêmio — São Lourenço, Jardim Botânico, Primavera e Brisas de Igarassu" },
+  { titulo: "Brisas de Igarassu · PCD",  texto: "R$ 10.000 de desconto OU R$ 5.000 de prêmio nas unidades PCD" },
+  { titulo: "Estilo Boa Viagem",         texto: "2Q: R$ 10.000 de desconto OU R$ 5.000 de prêmio · 3Q: R$ 50.000 de desconto OU R$ 25.000 de prêmio" },
+  { titulo: "Wave Boa Viagem",           texto: "R$ 10.000 de desconto OU R$ 5.000 de prêmio" },
+  { titulo: "Associativo Caixa (Wave e Estilo)", texto: "+ R$ 20.000 de desconto no valor da unidade · ITBI e registro bonificados (Estilo 100% · Wave 50%)" },
+  { titulo: "ITBI e registro grátis",    texto: "Cliente Morar Bem (renda até R$ 3.242) nos Viva Vida" },
+  { titulo: "Ato mínimo",                texto: "R$ 1.000 nos Viva Vida · R$ 3.000 no Wave e no Estilo" },
+  { titulo: "A partir de",               texto: "Primavera R$ 197.300 · Brisas R$ 199.600 · São Lourenço R$ 208.100 · Jd. Botânico R$ 218.700" }
+];
+const CONDICOES_ARQUIVO  = "condicoes/condicoes-outubro-2026.pdf";
+const CONDICOES_VALIDADE = "Válido até 31/10/2026. Premiação paga por nota fiscal, 100% após o repasse. Valores e unidades completos no PDF.";
+
+/* =========================================================
+   CARROSSEL — imagens na pasta "carrossel/" (passa sozinho)
+   ========================================================= */
+const CARROSSEL = [
+  { img: "carrossel/piedade-lancamento.jpg",       alt: "Em breve o novo Direcional em Piedade — 2 quartos com lazer completo" },
+  { img: "carrossel/piedade-piscinas.jpg",         alt: "Piscinas adulto e infantil" },
+  { img: "carrossel/piedade-lazer.jpg",            alt: "Área de lazer completa" },
+  { img: "carrossel/piedade-piquenique-jogos.jpg", alt: "Piquenique e espaço de jogos" },
+  { img: "carrossel/piedade-localizacao.jpg",      alt: "Perto de faculdade, supermercado, shopping e da praia" },
+  { img: "carrossel/direcional-brasil.jpg",        alt: "Direcional: +180 mil unidades, presente em 13 estados e no DF" }
+];
+const CARROSSEL_TEMPO = 4000; // ms entre uma imagem e outra
+
+/* =========================================================
+   3) LÓGICA DA PÁGINA (não precisa mexer)
+   ========================================================= */
+const $grid = document.getElementById('grid');
+const $busca = document.getElementById('busca');
+const $chips = document.getElementById('chips');
+const $contagem = document.getElementById('contagem');
+const $toast = document.getElementById('toast');
+let cidadeAtiva = 'Todas';
+
+const normaliza = s => (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const iniciais = n => n.split(' ').filter(Boolean).slice(0,2).map(p=>p[0]).join('').toUpperCase();
+
+/* Capa ilustrada: céu + prédios + (mar, se for de praia). A paleta é escolhida pelo nome. */
+const TEMAS = [
+  {ceu:['#FF9A5A','#7B3FA0'], sol:'#FFE08A', predio:'#2A1846', predio2:'#45266B', janela:'#FFD36B', mar:'#3B6FB6'}, // pôr do sol
+  {ceu:['#38C6C0','#0B5D6B'], sol:'#FFF4C2', predio:'#073B45', predio2:'#0E5563', janela:'#BFF5EC'}, // verde-água
+  {ceu:['#4FA3FF','#0B2F6B'], sol:'#FFFFFF', predio:'#0A2350', predio2:'#163A78', janela:'#FFE08A', mar:'#0E7FC0'}, // azul
+  {ceu:['#F7B733','#E2533A'], sol:'#FFF6D5', predio:'#4A1C1C', predio2:'#6E2A22', janela:'#FFE9A8'}  // laranja
+];
+function capaArte(e){
+  let h = 0; for (const c of e.nome) h = (h*31 + c.charCodeAt(0)) >>> 0;
+  const t = TEMAS[(e.tema ?? h) % TEMAS.length];
+  const praia = /boa viagem|wave|praia|mar/i.test(`${e.nome} ${e.bairro}`);
+  const base = praia ? 118 : 150;
+  // prédios: [x, largura, altura]
+  const blocos = [[10,46,48],[60,34,70],[98,52,40],[156,40,82],[200,58,56],[262,36,74],[302,50,46],[356,44,62]];
+  let rnd = h;
+  const r = () => (rnd = (rnd*1103515245 + 12345) >>> 0) / 4294967296;
+  const predios = blocos.map(([x,w,a],i) => {
+    let jan = '';
+    for (let y = base - a + 10; y < base - 10; y += 13)
+      for (let xx = x + 7; xx < x + w - 8; xx += 11)
+        if (r() > .45) jan += `<rect x="${xx}" y="${y}" width="5" height="7" rx="1" fill="${t.janela}" opacity="${(.55 + r()*.45).toFixed(2)}"/>`;
+    return `<rect x="${x}" y="${base-a}" width="${w}" height="${a}" rx="3" fill="${i%2?t.predio2:t.predio}"/>${jan}`;
+  }).join('');
+  const mar = praia ? `
+    <rect x="0" y="${base}" width="400" height="${150-base}" fill="${t.mar||t.predio2}"/>
+    <path d="M0 ${base+8} q25 -7 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" fill="none"/>
+    <path d="M0 ${base+20} q25 -7 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" stroke="#fff" stroke-opacity=".35" stroke-width="2" fill="none"/>` : '';
+  const id = 'g' + h;
+  return `
+    <svg class="arte" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.ceu[1]}"/><stop offset="1" stop-color="${t.ceu[0]}"/></linearGradient>
+        <linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+      </defs>
+      <rect width="400" height="150" fill="url(#${id})"/>
+      <circle cx="${300 + (h%60)}" cy="46" r="24" fill="${t.sol}" opacity=".9"/>
+      <circle cx="${300 + (h%60)}" cy="46" r="40" fill="${t.sol}" opacity=".15"/>
+      ${predios}${mar}
+      <rect width="400" height="150" fill="url(#${id}s)"/>
+    </svg>
+    <span class="breve">FOTOS EM BREVE</span>`;
+}
+const temLink = e => e.book && !e.book.includes('LINK-DO-BOOK');
+
+/* Link abaixo do book: tabela do empreendimento; sem tabela → condições comerciais do mês */
+function linkExtra(e){
+  if (e.tabela) return `<a class="link-extra" href="${e.tabela}" target="_blank" rel="noopener">📊 Tabela de preços <span>↗</span></a>`;
+  if (CONDICOES_ARQUIVO) return `<a class="link-extra" href="${CONDICOES_ARQUIVO}" target="_blank" rel="noopener">💰 Condições comerciais <span>↗</span></a>`;
+  return '';
+}
+
+function montaChips(){
+  const cidades = ['Todas', ...new Set(EMPREENDIMENTOS.map(e=>e.cidade))];
+  $chips.innerHTML = cidades.map(c =>
+    `<button class="chip ${c===cidadeAtiva?'ativo':''}" data-c="${c}">${c}</button>`).join('');
+}
+
+function render(){
+  const termo = normaliza($busca.value);
+  const lista = EMPREENDIMENTOS.filter(e =>
+    (cidadeAtiva==='Todas' || e.cidade===cidadeAtiva) &&
+    normaliza(`${e.nome} ${e.bairro} ${e.cidade}`).includes(termo));
+
+  $contagem.textContent = `${lista.length} ${lista.length===1?'empreendimento':'empreendimentos'}`;
+
+  if(!lista.length){
+    $grid.innerHTML = `<div class="vazio">Nenhum empreendimento encontrado.</div>`;
+    return;
+  }
+
+  // com book primeiro, depois por ordem de entrega (ordem da lista)
+  lista.sort((a,b) => temLink(b) - temLink(a));
+
+  $grid.innerHTML = lista.map((e,i) => `
+    <article class="card">
+      <div class="capa">
+        ${e.capa ? `<img src="${e.capa}" alt="${e.nome}" loading="lazy">` : capaArte(e)}
+        ${e.status ? `<span class="selo">${e.status}</span>` : ''}
+      </div>
+      <div class="info">
+        <div class="nome">${e.nome}</div>
+        <div class="local">📍 ${[e.bairro, e.cidade].filter(Boolean).join(' · ')}</div>
+        <div class="detalhes">${(e.detalhes||[]).map(d=>`<span>${d}</span>`).join('')}</div>
+        <div class="acoes">
+          ${temLink(e)
+            ? `<a class="btn" href="${e.book}" target="_blank" rel="noopener">Abrir book</a>
+               <button class="btn btn-2" data-copiar="${e.book}" title="Copiar link para enviar ao cliente">🔗</button>`
+            : `<span class="btn off">Book em breve</span>`}
+        </div>
+        ${linkExtra(e)}
+      </div>
+    </article>`).join('');
+}
+
+$chips.addEventListener('click', ev => {
+  const b = ev.target.closest('.chip'); if(!b) return;
+  cidadeAtiva = b.dataset.c; montaChips(); render();
+});
+$busca.addEventListener('input', render);
+
+$grid.addEventListener('click', async ev => {
+  const b = ev.target.closest('[data-copiar]'); if(!b) return;
+  const link = new URL(b.dataset.copiar, location.href).href; // vira link completo quando estiver online
+  try{ await navigator.clipboard.writeText(link); aviso('Link copiado! É só colar no WhatsApp.'); }
+  catch{ aviso('Não deu para copiar automaticamente.'); }
+});
+
+function aviso(t){ $toast.textContent=t; $toast.classList.add('on'); setTimeout(()=>$toast.classList.remove('on'),2200); }
+
+function montaCondicoes(){
+  document.getElementById('cond-lista').innerHTML = CONDICOES.map(c =>
+    `<div class="cond-item"><b>${c.titulo}</b><span>${c.texto}</span></div>`).join('');
+  document.getElementById('cond-acoes').innerHTML =
+    (CONDICOES_ARQUIVO ? `<a href="${CONDICOES_ARQUIVO}" target="_blank" rel="noopener">Ver tabela completa</a>` : '') +
+    (CONDICOES_VALIDADE ? `<span class="cond-validade">${CONDICOES_VALIDADE}</span>` : '');
+}
+
+function montaCarrossel(){
+  const $car = document.getElementById('car');
+  const $trilho = document.getElementById('car-trilho');
+  const $pontos = document.getElementById('car-pontos');
+  if (!CARROSSEL.length){ document.getElementById('lancamento').remove(); return; }
+  $trilho.innerHTML = CARROSSEL.map((c,i) =>
+    `<a class="car-slide" href="${c.img}" target="_blank" rel="noopener">
+       <img src="${c.img}" alt="${c.alt}" ${i ? 'loading="lazy"' : ''}></a>`).join('');
+  $pontos.innerHTML = CARROSSEL.map((_,i) => `<button data-i="${i}" aria-label="Imagem ${i+1}"></button>`).join('');
+  let atual = 0, timer;
+  const vai = i => {
+    atual = (i + CARROSSEL.length) % CARROSSEL.length;
+    $trilho.style.transform = `translateX(-${atual*100}%)`;
+    [...$pontos.children].forEach((b,j) => b.classList.toggle('ativo', j===atual));
+  };
+  const play = () => { clearInterval(timer); timer = setInterval(() => vai(atual+1), CARROSSEL_TEMPO); };
+  const pausa = () => clearInterval(timer);
+  document.getElementById('car-ant').onclick  = () => { vai(atual-1); play(); };
+  document.getElementById('car-prox').onclick = () => { vai(atual+1); play(); };
+  $pontos.onclick = ev => { const b = ev.target.closest('button'); if (b){ vai(+b.dataset.i); play(); } };
+  $car.addEventListener('mouseenter', pausa);
+  $car.addEventListener('mouseleave', play);
+  // arrastar com o dedo no celular
+  let x0 = null;
+  $car.addEventListener('touchstart', ev => { x0 = ev.touches[0].clientX; pausa(); }, {passive:true});
+  $car.addEventListener('touchend', ev => {
+    if (x0 === null) return;
+    const dx = ev.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) vai(atual + (dx < 0 ? 1 : -1));
+    play();
+  });
+  document.addEventListener('visibilitychange', () => document.hidden ? pausa() : play());
+  vai(0); play();
+}
+
+montaCarrossel(); montaCondicoes(); montaChips(); render();
+</script>
+</body>
+</html>
